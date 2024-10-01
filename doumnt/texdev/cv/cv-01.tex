@@ -1,0 +1,116 @@
+% 通用简历，不属于 nova.pdf 但属于 HerNote
+% 202409 后使用
+
+\documentclass[a4paper,10pt]{article}
+\usepackage{ctex}
+\usepackage{latexsym}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+% 页面布局
+\geometry{left=1.5cm, right=1.5cm, top=2cm, bottom=2cm}
+
+% 设置段落间距和标题格式
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0em}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+
+% 超链接颜色
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=magenta,      
+	urlcolor=blue,
+}
+
+% 自定义简历项目符号
+\newcommand{\resumeItem}[1]{
+	\item\small{
+		{#1 \vspace{-2pt}}
+	}
+}
+
+% 自定义简历条目
+\newcommand{\resumeSubheading}[4]{
+	\vspace{-1pt}
+	\item
+	\begin{tabular*}{1\textwidth}[t]{l@{\extracolsep{\fill}}r}
+		\textbf{#1} & #2 \\
+		\textit{#3} & \textit{#4} \\
+	\end{tabular*}\vspace{-5pt}
+}
+
+% 自定义简历子标题
+\newcommand{\resumeSubSubheading}[2]{
+	\item
+	\begin{tabular*}{1\textwidth}[t]{l@{\extracolsep{\fill}}r}
+		\textit{#1} & \textit{#2} \\
+	\end{tabular*}\vspace{-5pt}
+}
+
+% 自定义简历条目列表
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+	\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+% 自定义简历标题
+\newcommand{\resumeSection}[1]{\section*{\uppercase{#1}}}
+
+\begin{document}
+	
+	% 姓名和联系方式
+	\begin{center}
+		{\LARGE \textbf{姓名}} \\
+		\vspace{2pt}
+		地址 | 电话 | 邮箱 | \href{http://你的个人网站.com}{你的个人网站}
+	\end{center}
+	
+	% 教育背景
+	\resumeSection{教育背景}
+	\resumeItemListStart
+	\resumeSubheading
+	{某某大学}{城市, 国家}
+	{学位名称; 专业}{毕业年份}
+	\resumeItemListEnd
+	
+	% 工作经验
+	\resumeSection{工作经验}
+	\resumeItemListStart
+	\resumeSubheading
+	{公司名称}{城市, 国家}
+	{职位名称}{起止时间}
+	\resumeItemListStart
+	\resumeItem{职责或成就1}
+	\resumeItem{职责或成就2}
+	\resumeItem{职责或成就3}
+	\resumeItemListEnd
+	\resumeItemListEnd
+	
+	% 项目经验
+	\resumeSection{项目经验}
+	\resumeItemListStart
+	\resumeSubheading
+	{项目名称}{项目时间}
+	{项目角色}{}
+	\resumeItemListStart
+	\resumeItem{项目描述1}
+	\resumeItem{项目描述2}
+	\resumeItem{项目描述3}
+	\resumeItemListEnd
+	\resumeItemListEnd
+	
+	% 技能
+	\resumeSection{技能}
+	\resumeItemListStart
+	\resumeItem{编程语言：Python, Java, C++}
+	\resumeItem{工具：Git, Docker, Kubernetes}
+	\resumeItem{其他：问题解决，团队合作}
+	\resumeItemListEnd
+	
+\end{document}
+
+
