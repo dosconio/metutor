@@ -254,8 +254,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\..\startup\keil\startup_stm32f103xe.s</PathWithFileName>
-      <FilenameWithoutPath>startup_stm32f103xe.s</FilenameWithoutPath>
+      <PathWithFileName>..\..\startup_stm32f103xe.keil.s</PathWithFileName>
+      <FilenameWithoutPath>startup_stm32f103xe.keil.s</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

@@ -1,11 +1,6 @@
 // UTF-8 C++(ARMCC-5) TAB4 CRLF
 // @dosconio
-#include "cpp/MCU/ST/STM32F1"
-using namespace uni;
-
-GPIO_Pin& LEDR = GPIO['B'][5];
-GPIO_Pin& LEDG = GPIO['B'][0];
-GPIO_Pin& LEDB = GPIO['B'][1];
+#include "../../board.h"
 
 void loop() {
 	static byte idx = 0;

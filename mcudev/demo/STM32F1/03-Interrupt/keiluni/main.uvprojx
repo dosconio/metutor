@@ -10,9 +10,9 @@
       <TargetName>Target Main</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pArmCC>5060960::V5.06 update 7 (build 960)::.\ARMCC</pArmCC>
-      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARMCC</pCCUsed>
-      <uAC6>0</uAC6>
+      <pArmCC>6190000::V6.19::ARMCLANG</pArmCC>
+      <pCCUsed>6190000::V6.19::ARMCLANG</pCCUsed>
+      <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>STM32F103VE</Device>
@@ -55,7 +55,7 @@
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
           <DebugInformation>1</DebugInformation>
-          <BrowseInformation>0</BrowseInformation>
+          <BrowseInformation>1</BrowseInformation>
           <ListingPath>.\.lst\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
@@ -330,8 +330,8 @@
             <uC99>0</uC99>
             <uGnu>1</uGnu>
             <useXO>0</useXO>
-            <v6Lang>1</v6Lang>
-            <v6LangP>5</v6LangP>
+            <v6Lang>3</v6Lang>
+            <v6LangP>8</v6LangP>
             <vShortEn>1</vShortEn>
             <vShortWch>1</vShortWch>
             <v6Lto>0</v6Lto>
@@ -406,9 +406,9 @@
           <GroupName>Library Standard</GroupName>
           <Files>
             <File>
-              <FileName>startup_stm32f103xe.s</FileName>
+              <FileName>startup_stm32f103xe.keil.s</FileName>
               <FileType>2</FileType>
-              <FilePath>..\..\..\..\startup\keil\startup_stm32f103xe.s</FilePath>
+              <FilePath>..\..\startup_stm32f103xe.keil.s</FilePath>
             </File>
           </Files>
         </Group>

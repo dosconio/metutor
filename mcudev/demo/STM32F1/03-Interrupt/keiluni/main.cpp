@@ -1,16 +1,9 @@
 // UTF-8 C++(ARMCC-5) TAB4 CRLF
 // @dosconio
-#include "cpp/MCU/ST/STM32F1"
-using namespace uni;
+#include "../../board.h"
 
-GPIO_Pin& LEDR = GPIO['B'][ 5];
-GPIO_Pin& LEDG = GPIO['B'][ 0];
-GPIO_Pin& LEDB = GPIO['B'][ 1];
-GPIO_Pin& KEY1 = GPIO['A'][ 0];
-GPIO_Pin& KEY2 = GPIO['C'][13];
-
-void hand_key1() { LEDB.Toggle(); }
-void hand_key2() { LEDG.Toggle(); }
+static void hand_key1(void) { LEDB.Toggle(); }
+static void hand_key2(void) { LEDG.Toggle(); }
 
 int main() {
 	if (!RCC.setClock(SysclkSource::HSE))
