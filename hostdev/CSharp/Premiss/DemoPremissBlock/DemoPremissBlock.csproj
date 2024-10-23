@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4B2A5EB0-70B7-4C41-A638-0258E8088BFD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DemoPremissBlock</RootNamespace>
+    <AssemblyName>DemoPremissBlock</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BubbleSorter.cs" />
+    <Compile Include="CodeEditA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodeEditA.Designer.cs">
+      <DependentUpon>CodeEditA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonForm1.Designer.cs">
+      <DependentUpon>CommonForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CSRunCmdReIO.cs" />
+    <Compile Include="LabelDemons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PanelBtnTextChkChklstComb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PanelBtnTextChkChklstComb.Designer.cs">
+      <DependentUpon>PanelBtnTextChkChklstComb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorControlDemon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeniorControlDemon.Designer.cs">
+      <DependentUpon>SeniorControlDemon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SlfDrawnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SlfDrawnForm.Designer.cs">
+      <DependentUpon>SlfDrawnForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabLabelX.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TakeInExtWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TakeInExtWin.Designer.cs">
+      <DependentUpon>TakeInExtWin.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CodeEditA.resx">
+      <DependentUpon>CodeEditA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonForm1.resx">
+      <DependentUpon>CommonForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelBtnTextChkChklstComb.resx">
+      <DependentUpon>PanelBtnTextChkChklstComb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SeniorControlDemon.resx">
+      <DependentUpon>SeniorControlDemon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SlfDrawnForm.resx">
+      <DependentUpon>SlfDrawnForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TakeInExtWin.resx">
+      <DependentUpon>TakeInExtWin.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
