@@ -1,0 +1,33 @@
+;R
+;VER#R3
+;MTABLE
+[A1|link=test_|color=0=0=255]{一个大的合并单元格|link=test_|color=255=0=0][是的][A4]
+[B1][这里的内容][都会被忽略}{一个<br>竖排<br>的单<br>元格]
+[C1][C2][C3|color=0=255=0][}
+[A1容内容|link=test_|color=0=0=255]{一个<br>大的合并单元格一个大的合并单元格一个大的合并单元格一个大的合并单元格一个大的合并单元格一个大的合并单元格|link=test_|color=255=0=0][是的][A4]
+[B1][这里的内容][都会被忽略}{一个<br>竖排<br>的单<br>元格]
+[C1][C2][C3|color=0=255=0][}
+[A1|link=test_|color=0=0=255]{一个大的合并单元格|link=test_|color=255=0=0][是的][A4]
+[B1][这里的内容][都会被忽略}{一个<br>竖排<br>的单<br>元格]
+[C1][C2][C3|color=0=255=0][}
+;QWWE
+;AWWS
+;ZXCS
+
+;row=有效行数
+;col=有效列数，读一行即可，否则该数据就是非法的
+;读入渲染程序时
+;直接记录 Top,Left,Width,Height,ForeColor=Black,Backcolor=White,Link=""
+;默认TableLayoutPanel整体背景色为透明
+;委托 ItemOnLink(var of Link)
+;与{的配对
+;1.构建对应数组 bools 以标识哪些已经记录
+;2.各行同时向右搜寻'{' 第一列：第一行-》最后一行，第二列……
+;3.搜寻到{后
+;...
+
+;[A1]{haha][lele][lolo}{qw]
+;[B1]{gaga][qeqe}{kiki][qw]
+;[C1]{momo][keke][lili][qw]
+;[D1][lulu][dede}[riri}[qw}
+

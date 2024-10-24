@@ -1,0 +1,116 @@
+﻿            List<int> bigblk;//大表格开始的位置よ某行
+            bool StartFlag = false;//表格开始よ某行
+            int StartId = 0;
+            foreach (var v in data)
+            {
+                for (int i = 0; i < v.Length; i++)
+                {
+                    bigblk = new List<int>();
+                    if ((v[i] == '[') && StartFlag == false)
+                    {
+                        StartFlag = true;
+                        StartId = i + 1;
+                    }
+                    else if (v[i] == '{' && StartFlag == false)
+                    {
+                        StartFlag = true;
+                        bigblk.Add(i);
+                    }
+
+                    else if (v[i] == ']' && StartFlag == true)
+                    {
+                        table_item itm = new table_item();
+                        itm.Text=v.Substring(StartId.)
+                    }
+                    else if (v[i] == '}' && StartFlag == true)
+                    {
+
+                    }
+
+
+
+
+
+					
+            int BlkTop = -1, BlkLeft = -1, NormalLeft = -1;//byte
+
+                for (int i = rows - 1; i >= 0; i--) 
+                {
+                    for (int ii = 0; ii < data[i].Length; i++)
+                    {
+                        if (data[i][ii] == '[')
+                        {
+                            NormalLeft = i + 1;
+                        }
+                        else if (data[i][ii] == '{')
+                        {
+                            NormalLeft = i + 1;
+                            
+                        }
+                    }
+                }
+
+            data.Clear();
+
+
+
+
+
+
+
+
+
+
+			            cols = predata[0].Count;
+            if (cols < 1) return null;
+            bool[] syms = new bool[rows * cols];
+            bool OnBlk = false; int BlkTop=-1, BlkLeft=-1;
+            for (int ro = 0; ro <rows; ro++)
+            {
+                for (int cl = 0; cl < cols; cl++)
+                {
+                    if (OnBlk)
+                    {
+                        for (int roro = BlkTop; roro < rows; roro++)
+                        {
+                            for (int clcl = BlkLeft; clcl < cols; clcl++)
+                            {
+                                if (predata[roro][clcl][0] == '[' && predata[roro][clcl][predata[roro][clcl].Length - 1] == '}' && syms[cols * roro + clcl] == false)
+                                {
+                                    OnBlk = false;
+                                    for (int finrow = BlkTop; finrow <= roro; finrow++)
+                                    {
+                                        for (int fincol = BlkLeft; fincol <= clcl; fincol++)
+                                        {
+                                            syms[cols * finrow + fincol] = true;
+                                        }
+                                    }
+                                    table_item ti = new table_item();
+                                    ti.top = BlkTop;
+                                    ti.left = BlkLeft;
+                                    ti.width = clcl - BlkLeft + 1;
+                                    ti.height = roro - BlkTop + 1;
+                                    /**/
+                                    items.Add(ti);
+                                    break;
+                                }
+
+                            } if (OnBlk == false) break;
+                        }
+                    }
+                    else
+                    if (predata[ro][cl][0] == '{' && predata[ro][cl][predata[ro][cl].Length - 1] == ']' && syms[cols * ro + cl] == false)//块开始
+                    {
+                        OnBlk=true;
+                        BlkTop=ro;//from 0
+                        BlkLeft=cl;//from 0
+                        //syms[cols * ro + cl] = true;
+                    }
+                    else
+                    if (predata[ro][cl][0] == '[' && predata[ro][cl][predata[ro][cl].Length - 1] == ']' && syms[cols * ro + cl] == false)
+                    {
+                        
+                        syms[cols * ro + cl] = true;
+                    }
+                }
+            }

@@ -1,0 +1,4 @@
+indexname统一使用简体字
+rose中的indexname，应将繁体化简体，假名化罗马音，小写化大写。
+
+--REE21
