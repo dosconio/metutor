@@ -1,3 +1,7 @@
 .vs
 bin/
 obj/
+target/
+Cargo.lock
+*.uvgui.*
+*Keil.BAT

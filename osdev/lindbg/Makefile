@@ -8,10 +8,11 @@ all: cp run
 	@echo ciallo
 cp:
 	cp $(UNIX)/arch/$(ARCA)/boot/bzImage ./$(KNEL)
-	cp /home/ayano/Documents/busybox-1.36.1/_install/bin/busybox ./initramfs/bin/
+	mkdir -p ./initramfs/bin/
+	cp ~/Documents/busybox-1.36.1/_install/bin/busybox ./initramfs/bin/
 	
 init: initramfs/sa_call452 initramfs/sa_uart
-	cp app/*.ko initramfs/out/
+	-cp app/*.ko initramfs/out/
 	@cd ./initramfs && find . -print0 | cpio -ov --null --format=newc | gzip -9 > ../$(INIF)
 run: init
 	@qemu-system-$(ARCH) -kernel $(KNEL) -initrd $(INIF) -m 256M -nographic \

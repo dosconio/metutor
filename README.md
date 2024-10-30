@@ -40,15 +40,20 @@ For example, if you make a C file, the content will be:
 ```
 
 
-
-
-
-
-
 ## Contributors
 
 - **Doshou Haruno** dosconyo@gmail.com
 - 
 
+## Component
+
+- **asmdev** : assembly learning
+- **config** : software configuration
+- **doumnt** : document writing template
+- **guidev** : graphics learning
+- **hostdev**: hosted development
+- **mcudev** : microcontroller development
+- **osdev**  : operating system module development
+- **ustest** : checking set for unisym
 
 
