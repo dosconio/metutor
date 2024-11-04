@@ -30,9 +30,9 @@ sudo apt install perl
 sudo apt install python3
 sudo apt-get install pkg-config
 
-echo "export uincpath=/mnt/hgfs/unisym/inc" | tee -a ~/.bashrc>/dev/null
-echo "export ulibpath=/mnt/hgfs/unisym/lib" | tee -a ~/.bashrc>/dev/null
-echo "export ubinpath=/mnt/hgfs/SVGN/_bin"  | tee -a ~/.bashrc>/dev/null
+echo "export uincpath=/mnt/hgfs/SVGN/unisym/inc" | tee -a ~/.bashrc>/dev/null
+echo "export ulibpath=/mnt/hgfs/SVGN/unisym/lib" | tee -a ~/.bashrc>/dev/null
+echo "export ubinpath=/mnt/hgfs/_bin"  | tee -a ~/.bashrc>/dev/null
 
 sudo curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 sudo apt install cargo
@@ -89,3 +89,11 @@ sudo apt install libc6-mips-cross
 sudo apt install sdcc
 sudo apt install python3-pip
 pip3 install stcgal
+
+# MCU on ARM
+sudo apt install gcc-arm-none-eabi # 2,575 MB
+sudo apt install stm32flash
+sudo apt install minicom
+sudo apt-get install libusb-1.0
+sudo apt install stlink-tools
+sudo apt install stlink-gui
