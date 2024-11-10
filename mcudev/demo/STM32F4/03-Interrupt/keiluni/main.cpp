@@ -1,15 +1,19 @@
 // UTF-8 C++(ARMCC-5) TAB4 CRLF
 // @dosconio
-#include "../../board.h"
+#include "cpp/MCU/ST/STM32F4"
+using namespace uni;
 
-void hand_key() { LEDB.Toggle(); }
+GPIO_Pin& LED = GPIOC[0];
+GPIO_Pin& KEY = GPIOC[1];
+
+void hand_key() { LED.Toggle(); }
 
 int main() {
 	if (!RCC.setClock(SysclkSource::HSE))
 	{ while (true); }
-	LEDB.setMode(GPIOMode::OUT_PushPull);
+	LED.setMode(GPIOMode::OUT_PushPull);
 	KEY.setMode(GPIORupt::Anyedge, hand_key);
-	LEDB = !false;
+	LED = !false;
 	KEY.enInterrupt();
 	while (true);
 }

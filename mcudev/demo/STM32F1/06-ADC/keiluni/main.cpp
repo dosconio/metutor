@@ -28,7 +28,7 @@ void ADC_by_interrupt() {
 	while (true) {
 		SysDelay(500);
 		sprintf(buf, "0x%04X \r\n", adc_res);
-		XART1 << (const char*)buf;
+		XART1 << buf;
 		LEDR.Toggle();
 	}
 }
@@ -51,7 +51,7 @@ void ADC_by_dma() {
 int main() {
 	if (!init()) while (true);
 	XART1.setMode();
-	const int method = 0; // 1 for INT, 0 for DMA
+	const int method = 1; // 1 for INT, 0 for DMA
 	
 	if (method)
 		ADC_by_interrupt();

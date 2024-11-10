@@ -12,20 +12,20 @@ kitwin:
 	@# omit normal kits
 	-ahkcc $(ulibpath)/Script/AutoHotkey/Arnscr.ahk $(ubinpath)/arnscr.exe
 
-release-on-win
+release-on-win:
 	@echo build for UNISYM
-	make -f $(ulibpath)/../Makefile cgw32
-	make -f $(ulibpath)/../Makefile cgw64
-	make -f $(ulibpath)/../Makefile cvw32
-	make -f $(ulibpath)/../Makefile cvw64
-	make -f $(ulibpath)/../Makefile rust
-	make -f $(ulibpath)/../Makefile manual
+	cd $(ulibpath)/.. && make cgw32
+	cd $(ulibpath)/.. && make cgw64
+	cd $(ulibpath)/.. && make cvw32
+	cd $(ulibpath)/.. && make cvw64
+	cd $(ulibpath)/.. && make rust
+	cd $(ulibpath)/.. && make manual
 
-release-on-lin
+release-on-lin:
 	@echo build for UNISYM
-	make -f $(ulibpath)/../Makefile cgl32
-	make -f $(ulibpath)/../Makefile cgl64
-	make -f $(ulibpath)/../Makefile mx86
-	make -f $(ulibpath)/../Makefile rust
+	cd $(ulibpath)/.. && make cgl32
+	cd $(ulibpath)/.. && make cgl64
+	cd $(ulibpath)/.. && make mx86
+	cd $(ulibpath)/.. && make rust
 	
 

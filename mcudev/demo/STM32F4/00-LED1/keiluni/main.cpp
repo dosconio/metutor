@@ -7,11 +7,8 @@ GPIO_Pin& LED = GPIOC[0];
 
 int main() {
 	LED.setMode(GPIOMode::OUT_PushPull);
-	if (!RCC.setClock(SysclkSource::HSE)) while (true);
-	
 	while (true) {
 		LED.Toggle();
-		SysDelay(500);// ms
+		for0 (i, 1000000);
 	}
 }
-

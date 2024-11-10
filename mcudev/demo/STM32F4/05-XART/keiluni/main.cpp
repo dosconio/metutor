@@ -1,7 +1,10 @@
 // UTF-8 C++(ARMCC-5) TAB4 CRLF
 // @dosconio
-#include "../../board.h"
+#include "cpp/MCU/ST/STM32F4"
+using namespace uni;
 
+GPIO_Pin& LED = GPIOC[0];
+GPIO_Pin& KEY = GPIOC[1];
 void hand_uart() {
 	int data;
 	XART1 >> data;
@@ -9,15 +12,14 @@ void hand_uart() {
 }
 
 int main() {
-	LEDR.setMode(GPIOMode::OUT_PushPull);
+	LED.setMode(GPIOMode::OUT_PushPull);
 	if (!RCC.setClock(SysclkSource::HSE)) while (true);
 	XART1.setMode();
-	XART1.setInterrupt(hand_uart);
-	XART1.enInterrupt();
+	XART1.RuptTrait::enInterrupt(hand_uart);
 	SysDelay(1);
 	XART1 << "Hello~\n";
 	while (true) {
-		LEDR.Toggle();
+		LED.Toggle();
 		XART1 << ">>>\n";
 		SysDelay(1000);
 	}
