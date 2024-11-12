@@ -5,6 +5,9 @@ obj/
 .lst/
 target/
 build/
+Objects/
+Listings/
+RTE/
 DebugConfig/
 Cargo.lock
 *.uvguix.*
