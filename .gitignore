@@ -1,16 +1,35 @@
+# vs
 .vs
-bin/
-obj/
-.obj/
-.lst/
-target/
-build/
+
+# keil
+RTE/
+RTE_*
 Objects/
 Listings/
-RTE/
 DebugConfig/
-Cargo.lock
 *.uvguix.*
 *Keil.BAT
 EventRecorderStub.scvd
+
+bin/
+*.bin
+obj/
+.obj/
+*.obj
+.lst/
+*.map
+*.dll
+*.zip
+*.pyd
+*.msi
+target/
+build/
+Debug
+*Debug.cfg
+
+# Rust
+Cargo.lock
+
+# vscode
 settings.json
+

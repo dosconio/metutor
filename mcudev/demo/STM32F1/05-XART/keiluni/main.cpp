@@ -19,10 +19,8 @@ void my_uart() {
 }
 int main() {
 	if (!init()) while (true);
-	XART1.setMode();
-	XART1.setInterruptPriority(0,1);
-	XART1.setInterrupt(my_uart);
-	XART1.enInterrupt();
+	XART1.setMode(9600);
+	XART1.RuptTrait::enInterrupt(my_uart);
 	SysDelay(1);
 	XART1 << "Hello~\n";
 	while (true) {

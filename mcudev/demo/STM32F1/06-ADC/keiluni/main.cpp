@@ -23,8 +23,7 @@ void ADC_by_interrupt() {
 	GPIOC[1].setMode(GPIOMode::IN_Analog);
 	ADC1.setMode();
 	ADC1.setChannel(GPIOC[1]);
-	ADC1.setInterrupt(hand_adc);
-	ADC1.enInterrupt();
+	ADC1.RuptTrait::enInterrupt(hand_adc);
 	while (true) {
 		SysDelay(500);
 		sprintf(buf, "0x%04X \r\n", adc_res);
