@@ -31,12 +31,12 @@ esac
 
 message="${infile}'s signature done. Output file: ${outfile}"
 command="${cmd} ${imgtool} ${infile} ${outfile} ${binary_type} ${entry_point}"
-
+ret 1
 ${command} # > "${projectdir}/output_log.txt"
 ret=$?
 
 if [ ${ret} == 0 ]; then
 echo ${message}
 else
-echo "postbuild.sh failed"
+echo "postbuild.sh failed" ${ret} ${command}
 fi

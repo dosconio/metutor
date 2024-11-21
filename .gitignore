@@ -1,3 +1,5 @@
+0Z-*
+
 # vs
 .vs
 
@@ -22,6 +24,10 @@ obj/
 *.zip
 *.pyd
 *.msi
+*.a
+*.lib
+*.LIB
+*.7z
 target/
 build/
 Debug

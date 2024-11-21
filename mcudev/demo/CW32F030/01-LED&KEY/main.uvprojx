@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>_MCU_CW32F030</Define>
               <Undefine></Undefine>
-              <IncludePath>M:\her\SVGN\unisym\inc\c;M:\her\SVGN\unisym\inc\cpp</IncludePath>
+              <IncludePath>M:\her\SVGN\unisym\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -402,7 +402,7 @@
             <File>
               <FileName>ucw32f030.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>M:\her\SVGN\_bin\mcu\ucw32f030.lib</FilePath>
+              <FilePath>..\..\..\driver\ucw32f030.lib</FilePath>
             </File>
           </Files>
         </Group>

@@ -265,7 +265,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>M:\her\SVGN\_bin\mcu\ucw32f030.lib</PathWithFileName>
+      <PathWithFileName>..\..\..\driver\ucw32f030.lib</PathWithFileName>
       <FilenameWithoutPath>ucw32f030.lib</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>

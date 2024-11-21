@@ -9,7 +9,8 @@
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE",
-				"_MPU_STM32MP13"
+				"_MPU_STM32MP13",
+				"_STYLE_RUST"
             ],
             "compilerPath": "arm-none-eabi-g++",
             "cStandard": "c17",
