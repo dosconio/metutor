@@ -8,9 +8,6 @@
 
 bool useDDR = false;
 
-// (No ADVERTISEMENT!) Openedv(R) Board [1o2o3x]
-GPIN& LED = GPIOI[3];
-
 bool init() {
 	if (!init_specific() || !init_clock()) return false;
 	LED.setMode(GPIOMode::OUT_PushPull);

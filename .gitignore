@@ -1,4 +1,6 @@
 0Z-*
+atk_*
+*Debug.*
 
 # vs
 .vs
@@ -32,6 +34,9 @@ target/
 build/
 Debug
 *Debug.cfg
+
+# CubeIDE
+.settings/
 
 # Rust
 Cargo.lock

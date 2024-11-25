@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>_MCU_MSP432P4</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\..\..\SVGN\unisym\inc\c;..\..\..\..\..\SVGN\unisym\inc\cpp;..\..\LibCWOfficial\CW32F030\inc;.\</IncludePath>
+              <IncludePath>M:\her\SVGN\unisym\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -395,14 +395,14 @@
           <GroupName>Group Unisym</GroupName>
           <Files>
             <File>
-              <FileName>umsp432p4.lib</FileName>
-              <FileType>4</FileType>
-              <FilePath>..\..\..\..\..\SVGN\_bin\mcu\umsp432p4.lib</FilePath>
-            </File>
-            <File>
               <FileName>startup_msp432p401r.keil.s</FileName>
               <FileType>2</FileType>
               <FilePath>..\startup_msp432p401r.keil.s</FilePath>
+            </File>
+            <File>
+              <FileName>umsp432p4.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\..\..\driver\umsp432p4.lib</FilePath>
             </File>
           </Files>
         </Group>

@@ -85,8 +85,9 @@ static bool init_clock_no_ddr() {
 	RCC_OscInitStructure.PLL4.PLLMODE = RCC_PLL_INTEGER;
 	*/
 	bool if_range4 = true;
-	if (!RCC.PLL4.setModePLL34(PLLMode::Integer, PLL4Source::HSE, if_range4,
-		.m=2, .n=50, .p=12, .q=60, .r=6, .frac=0)) erro();
+	if (!RCC.PLL4.setModePLL34(PLLMode::Fractional, PLL4Source::HSE, if_range4,
+		.m=2, .n=38, .p=12, .q=14, .r=6, .frac=4096)) erro();// 33M for LTDC
+		//.m=2, .n=35, .p=12, .q=14, .r=6, .frac=0)) erro();   // 30M for LTDC
 
 	bool state = true;
 	// BUS PART:  Order: MPU ACLK HCLK PCLK4 PCLK5 PCLK1 PCLK2 PCLK3 PCLK6
@@ -147,3 +148,4 @@ bool init_clock(void) {
 
 extern "C" { void erro(void) { loop; } }
 extern "C" { void Error_Handler(void) { erro(); } }
+extern "C" { void assert_failed(void) { erro(); } }
