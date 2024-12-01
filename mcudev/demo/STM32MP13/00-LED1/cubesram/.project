@@ -33,6 +33,16 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>Source/startup_stm32mp135dxx_ca7.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/startup_stm32mp135dxx_ca7.c</locationURI>
+		</link>
+		<link>
+			<name>Source/system_stm32mp13xx_A7.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/system_stm32mp13xx_A7.c</locationURI>
+		</link>
+		<link>
 			<name>Unilib/libSTM32MP13.a</name>
 			<type>1</type>
 			<location>E:/_bin/libSTM32MP13.a</location>

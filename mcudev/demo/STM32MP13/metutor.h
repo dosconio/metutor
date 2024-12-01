@@ -23,6 +23,10 @@ extern bool init_clock(void);
 // (No ADVERTISEMENT!) Openedv(R) Board [1o2o3x]
 // LED
 GPIN& LED = GPIOI[3];
+// KEY
+//    : ! The Pin also CONNECT the JTAG TCK. So using this is bad while debugging !
+//    :   If you'd like to make EXTI Interrupt, use another GPIN connected with the RuptPIN
+GPIN& KEY = GPIOF[14];
 // LCD 888
 GPIN* LCDR[8] {
 	&GPIOE[11], &GPIOD[ 4], &GPIOG[ 7], &GPIOB[12],

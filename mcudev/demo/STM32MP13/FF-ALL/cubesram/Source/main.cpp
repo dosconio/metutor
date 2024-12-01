@@ -10,6 +10,8 @@
 
 bool useDDR = false;
 
+void hand() { LED.Toggle(); }
+
 bool init() {
 	auto spd = GPIOSpeed::Veryhigh;
 	if (!init_specific() || !init_clock()) return false;
@@ -40,7 +42,10 @@ bool init() {
 	}
 	if (LTDC.getFrequency() != 33e6) return false;// 33MHz
 	LTDC.setMode(Color::AliceBlue);
-	//
+	// EXTI
+	GPIOA[3].setMode(GPIORupt::Anyedge);// USART2_RX
+	GPIOG[10].setMode(GPIOMode::OUT_PushPull);// FDCAN1_TX
+	GPIOA[3].setInterrupt(hand);
 	return true;
 }
 
@@ -48,9 +53,10 @@ extern "C" uint8_t test(void);
 
 fn main() -> int {
 	if (!init()) loop;
-	// test();
+	GPIOA[3].enInterrupt();
+	test();
 	loop {
-		LED.Toggle();
+		GPIOG[10].Toggle();
 		SysDelay(500);
 	}
 }

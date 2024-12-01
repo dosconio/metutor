@@ -66,7 +66,7 @@ __weak void SystemInit_Interrupts_SoftIRQn_Handler(uint32_t Software_Interrupt_I
   UNUSED((void)cpu_id_request);
 }
 
-void SecurePhysicalTimer_IRQHandler(void)
+void SecurePhysicalTimer_hand(void)
 {
   IRQ_ClearPending((IRQn_ID_t)SecurePhyTimer_IRQn);
 
@@ -274,10 +274,6 @@ void MP13_SystemInit(void)
   /* Enable GIC */
   IRQ_Initialize();
 
-  /* Set Interrupt vectors */
-  for (i = 0U; i < (uint32_t)MAX_IRQ_n ; i++) {
-    IRQ_SetHandler((IRQn_ID_t)i, IRQ_Vector_Table[i]);
-  }
 #endif
 }
 

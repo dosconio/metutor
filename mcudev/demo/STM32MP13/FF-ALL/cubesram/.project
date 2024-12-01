@@ -38,9 +38,29 @@
 			<locationURI>PARENT-7-PROJECT_LOC/TODO/STM32Cube_FW_MP13_V1.1.0/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal.c</locationURI>
 		</link>
 		<link>
+			<name>Drivers/stm32mp13xx_hal_exti.c</name>
+			<type>1</type>
+			<locationURI>PARENT-7-PROJECT_LOC/TODO/STM32Cube_FW_MP13_V1.1.0/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_exti.c</locationURI>
+		</link>
+		<link>
+			<name>Drivers/stm32mp13xx_hal_gpio.c</name>
+			<type>1</type>
+			<locationURI>PARENT-7-PROJECT_LOC/TODO/STM32Cube_FW_MP13_V1.1.0/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_gpio.c</locationURI>
+		</link>
+		<link>
 			<name>Drivers/stm32mp13xx_hal_ltdc.c</name>
 			<type>1</type>
 			<locationURI>PARENT-7-PROJECT_LOC/TODO/STM32Cube_FW_MP13_V1.1.0/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_ltdc.c</locationURI>
+		</link>
+		<link>
+			<name>Source/startup_stm32mp135dxx_ca7.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/startup_stm32mp135dxx_ca7.c</locationURI>
+		</link>
+		<link>
+			<name>Source/system_stm32mp13xx_A7.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/system_stm32mp13xx_A7.c</locationURI>
 		</link>
 		<link>
 			<name>Unilib/libSTM32MP13.a</name>
