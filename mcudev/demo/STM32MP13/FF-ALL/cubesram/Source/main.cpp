@@ -8,7 +8,8 @@
 
 #define setAF(x) setMode(GPIOMode::OUT_AF_PushPull, spd)._set_alternate(x)
 
-bool useDDR = false;
+//{}  bool useDDR = false;//{}
+bool exist_ddr = true;
 
 void hand() { LED.Toggle(); }
 
@@ -41,7 +42,7 @@ bool init() {
 		vpara.sync_len = 3;
 	}
 	if (LTDC.getFrequency() != 33e6) return false;// 33MHz
-	LTDC.setMode(Color::AliceBlue);
+	LTDC.setMode(Color::Black);
 	// EXTI
 	GPIOA[3].setMode(GPIORupt::Anyedge);// USART2_RX
 	GPIOG[10].setMode(GPIOMode::OUT_PushPull);// FDCAN1_TX
@@ -50,13 +51,28 @@ bool init() {
 }
 
 extern "C" uint8_t test(void);
-
+extern "C" uint8_t test2(void);
+#define _times0  (*(uint32*)(0xC0000000 + 4*800*480 + 4))
+#define _times  (*(uint32*)(0xC0000000 + 4*800*480))
 fn main() -> int {
 	if (!init()) loop;
 	GPIOA[3].enInterrupt();
 	test();
+	test2();
+	Rectangle rect(Point(0,0), Size2(800, 480));
 	loop {
+		static unsigned k = 10;
 		GPIOG[10].Toggle();
-		SysDelay(500);
+		*(uint32*)&rect.color = k += 10;
+		LCD.Draw(rect);
+		uint32 times0, times;
+		GPIOG[10].Toggle();
+		SysDelay(200);
 	}
 }
+
+// Global Data
+VideoControlBlock LCD = LTDC[1].getControlBlock();
+
+void LTDC_LAYER_t::DrawFont(const Point& disp, const DisplayFont& font) const {}
+
