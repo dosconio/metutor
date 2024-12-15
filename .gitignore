@@ -25,6 +25,7 @@ obj/
 *.dll
 *.zip
 *.pyd
+*.pyd
 *.msi
 *.a
 *.lib
@@ -36,7 +37,7 @@ Debug
 *Debug.cfg
 
 # CubeIDE
-.settings/
+*.prefs
 
 # Rust
 Cargo.lock

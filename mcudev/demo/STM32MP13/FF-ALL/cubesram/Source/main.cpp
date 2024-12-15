@@ -8,16 +8,18 @@
 
 #define setAF(x) setMode(GPIOMode::OUT_AF_PushPull, spd)._set_alternate(x)
 
-//{}  bool useDDR = false;//{}
 bool exist_ddr = true;
 
 void hand() { LED.Toggle(); }
 
+bool init_ddr();
 bool init() {
 	auto spd = GPIOSpeed::Veryhigh;
 	if (!init_specific() || !init_clock()) return false;
 	// LED
 	LED.setMode(GPIOMode::OUT_PushPull);
+	// DDR
+	if (exist_ddr && !init_ddr()) return false;
 	// LCD
 	LCD_BL.setMode(GPIOMode::OUT_PushPull).setPull(true);
 	LCD_DE.setAF(11);
@@ -47,6 +49,8 @@ bool init() {
 	GPIOA[3].setMode(GPIORupt::Anyedge);// USART2_RX
 	GPIOG[10].setMode(GPIOMode::OUT_PushPull);// FDCAN1_TX
 	GPIOA[3].setInterrupt(hand);
+	//
+
 	return true;
 }
 
@@ -59,14 +63,14 @@ fn main() -> int {
 	GPIOA[3].enInterrupt();
 	test();
 	test2();
-	Rectangle rect(Point(0,0), Size2(800, 480));
+	//Rectangle rect(Point(0,0), Size2(800, 480));
+	Circle circ(Point(200,200), 200);
 	loop {
 		static unsigned k = 10;
 		GPIOG[10].Toggle();
-		*(uint32*)&rect.color = k += 10;
-		LCD.Draw(rect);
+		*(uint32*)&circ.color = k += 10;
+		LCD.Draw(circ);
 		uint32 times0, times;
-		GPIOG[10].Toggle();
 		SysDelay(200);
 	}
 }

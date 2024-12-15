@@ -51,19 +51,5 @@ GPIN& LCD_CLK= GPIOD[9];// AF13
 GPIN& LCD_HSYNC = GPIOH[10];// AF13
 GPIN& LCD_VSYNC = GPIOG[ 4];// AF11
 
-class my_vci_t : public VideoControlInterface {
-	virtual void SetCursor(const Point& disp) {}
-	virtual Point GetCursor() { return Point(0,0); }
-	virtual void DrawPoint (const Point& disp, Color color);
-	virtual void DrawRectangle (const Rectangle& rect) {
-		//ILI9341_OpenWindow (rect.x, rect.y, rect.width, rect.height);
-		//ILI9341_FillColor(rect.width * rect.height, rect.color.ToRGB565());
-	}
-	virtual void DrawFont (const Point& disp, const DisplayFont& font) {
-		//ILI9341_DispString_EN(disp.x, disp.y, (char*)font.addr);
-	}
-	virtual Color GetColor(Point p){return Color::From32(0);}
-};
-extern my_vci_t my_vci;
 extern VideoControlBlock LCD;
 

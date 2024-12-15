@@ -25,11 +25,11 @@ symbol_t pro01, pro02, pro03, pro04, pro05;
 char* StrHeap(const char* a){v a; return nullptr;}
 char* StrHeapAppendChars(char* dest, char chr, size_t n) {v dest; v chr; v n; return nullptr;}
 extern "C" void outtxt(const char* str, dword len) {
-	for0(i, len) if (str[i]) {
+	for0(i, len) {
 		XART1 << stduint(str[i]);
 		for0(i, _TEMP 1000);
-	} 
-	else return;
+	}
+	_crt_out_cnt += len;
 }
 
 
