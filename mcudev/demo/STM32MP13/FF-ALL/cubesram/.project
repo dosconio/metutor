@@ -48,11 +48,6 @@
 			<locationURI>PARENT-7-PROJECT_LOC/TODO/STM32Cube_FW_MP13_V1.1.0/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal.c</locationURI>
 		</link>
 		<link>
-			<name>Drivers/stm32mp13xx_hal_ddr.c</name>
-			<type>1</type>
-			<locationURI>PARENT-7-PROJECT_LOC/TODO/STM32Cube_FW_MP13_V1.1.0/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_ddr.c</locationURI>
-		</link>
-		<link>
 			<name>Drivers/stm32mp13xx_hal_ltdc.c</name>
 			<type>1</type>
 			<locationURI>PARENT-7-PROJECT_LOC/TODO/STM32Cube_FW_MP13_V1.1.0/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_ltdc.c</locationURI>

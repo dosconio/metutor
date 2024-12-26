@@ -9,15 +9,17 @@ _ESYM_C void erro();
 bool init_ddr() {
 	RCC.CSI.enAble(true);
 	RCC.enSyscfg(true);
-	//1
-	//2
+	MCE.enClock();
+	TZC.enClock();
 	TZC[TZCReg::GATE_KEEPER] = 0;
 	TZC[TZCReg::REG_ID_ACCESSO] = 0xFFFFFFFF;// Allow DDR Region0 R/W  non secure for all IDs
 	TZC[TZCReg::REG_ATTRIBUTESO] = 0xC0000001;
 	TZC[TZCReg::GATE_KEEPER] |= 1;// Enable the access in secure Mode. filter 0 request close
-	//3
-	//4
-	if (!DDR.setMode()) return false;
+	// Enable ETZPC & BACKUP SRAM for security
+	ETZPC.enClock();
+	BKPSRAM.enClock();
+	BSEC[BSECReg::BSEC_DENABLE] = 0x47f;
+	if (!DDR.setMode(DDRType::DDR3, DDR_t::DDRSize_256M)) return false;
 	// Check DDR Write/Read
 	{
 		Letvar(tmpp, uint32*, 0xC0000000);
