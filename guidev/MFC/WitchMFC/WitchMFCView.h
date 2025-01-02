@@ -62,7 +62,7 @@ class my_vci_t : public VideoControlInterface {
 	virtual void DrawPoint(const Point& disp, Color color) const;
 	virtual void DrawRectangle(const uni::Rectangle& rect) const;
 	virtual void DrawFont(const Point& disp, const DisplayFont& font) const {}
-	virtual Color GetColor(Point p) const { return Color::From32(0); }
+	virtual Color GetColor(Point p) const { return Color::FromRGB888(0); }
 public:
 	CWitchMFCView* pCDC;
 };

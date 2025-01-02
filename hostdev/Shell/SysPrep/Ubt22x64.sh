@@ -97,3 +97,7 @@ sudo apt install minicom
 sudo apt-get install libusb-1.0
 sudo apt install stlink-tools
 sudo apt install stlink-gui
+
+# sudo apt install gcc-arm-linux-gnueabihf
+
+

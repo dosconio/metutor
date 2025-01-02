@@ -49,6 +49,7 @@ bool init() {
 	{
 		LTDC_LAYER_t::LayerPara lpara;
 		LTDC_LAYER_t::layer_param_refer(&lpara);
+		lpara.roleaddr;
 		asrtret(LTDC[0].setMode(lpara));
 	}
 	// EXTI

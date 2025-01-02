@@ -38,6 +38,8 @@ Debug
 
 # CubeIDE
 *.prefs
+Stm32ImageAddHeader.exe
+Result
 
 # Rust
 Cargo.lock
