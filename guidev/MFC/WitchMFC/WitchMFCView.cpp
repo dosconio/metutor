@@ -29,6 +29,7 @@ void my_vci_t::DrawRectangle(const uni::Rectangle& rect) const {
 	dc.FillRect(CRect(rect.x, rect.y, rect.x + rect.width, rect.y + rect.height), &brush);
 }
 VideoControlBlock Screen(nullptr, my_vci);
+VideoConsole VConsole(my_vci, Size2(80, 25));
 
 // CWitchMFCView
 
@@ -43,6 +44,7 @@ BEGIN_MESSAGE_MAP(CWitchMFCView, CView)
 	ON_COMMAND(ID_DRAW_DRAWCIRCLE, &CWitchMFCView::OnDrawDrawcircle)
 	ON_WM_LBUTTONDOWN()
 	ON_WM_LBUTTONUP()
+	ON_COMMAND(ID_DRAW_DRAWFONT, &CWitchMFCView::OnDrawDrawfont)
 END_MESSAGE_MAP()
 
 // CWitchMFCView construction/destruction
@@ -129,18 +131,18 @@ void CWitchMFCView::OnDrawDrawline()
 
 void CWitchMFCView::OnDrawDrawrect()
 {
-	uni::Rectangle rec(Point(50, 100), Size2(600, 200), Color::Blue);
+	uni::Rectangle rec(Point(50, 100), Size2(600, 100), Color::Blue);
 	Screen.Draw(rec);
 }
 
 
 void CWitchMFCView::OnDrawDrawcircle()
 {
-	uni::Circle cir(Point(200, 200), 50, Color::Red, false);
+	uni::Circle cir(Point(200, 200), 100, Color::Red, false);
 	Screen.Draw(cir);
 	cir.filled = true;
 	cir.center = Point(300, 300);
-	cir.radius = 100;
+	cir.radius = 88;
 	Screen.Draw(cir);
 }
 
@@ -161,4 +163,10 @@ void CWitchMFCView::OnLButtonUp(UINT nFlags, CPoint point)
 	dc.MoveTo(point_dn);
 	dc.LineTo(point_up);
 	CView::OnLButtonUp(nFlags, point);
+}
+
+
+void CWitchMFCView::OnDrawDrawfont()
+{
+	VConsole.FormatShow("Hello %x", 0x1234);
 }

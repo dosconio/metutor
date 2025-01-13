@@ -53,6 +53,7 @@ public:
 public:
 	CPoint point_dn;
 	CPoint point_up;
+	afx_msg void OnDrawDrawfont();
 };
 
 using namespace uni;

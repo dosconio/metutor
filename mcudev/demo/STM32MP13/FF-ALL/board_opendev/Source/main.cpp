@@ -56,6 +56,8 @@ bool init() {
 	GPIOA[3].setMode(GPIORupt::Anyedge);// USART2_RX
 	GPIOG[10].setMode(GPIOMode::OUT_PushPull);// FDCAN1_TX
 	GPIOA[3].setInterrupt(hand);
+	GPIOI[0].setMode(GPIOMode::INN);
+	GPIOI[2].setMode(GPIOMode::OUT) = 1;
 	//
 
 	return true;
@@ -64,18 +66,24 @@ bool init() {
 fn main() -> int {
 	if (!init()) loop;
 	GPIOA[3].enInterrupt();
+	//GPIOI[0].enInterrupt();
 	Circle circ(Point(200,200), 200);
+	VConsole.FormatShow("Ciallo %[32H]", 0x4567);
 	loop {
 		static unsigned k = 10;
-		GPIOG[10].Toggle();
-		*(uint32*)&circ.color = k += 10;
-		LCD.Draw(circ);
-		SysDelay(200);
+		//GPIOG[10].Toggle();
+		//*(uint32*)&circ.color = k += 10;
+		//LCD.Draw(circ);
+		//LED = GPIOI[0];
+		LED.Toggle();
+		SysDelay(250);
 	}
 }
 
 // Global Data
 VideoControlBlock LCD = LTDC[1].getControlBlock();
+VideoConsole VConsole(LTDC[1], Size2(80, 25));
 
 void LTDC_LAYER_t::DrawFont(const Point& disp, const DisplayFont& font) const {}
+void outtxt(const char* str, stduint len) {str; len;}
 

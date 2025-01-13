@@ -52,4 +52,5 @@ GPIN& LCD_HSYNC = GPIOH[10];// AF13
 GPIN& LCD_VSYNC = GPIOG[ 4];// AF11
 
 extern VideoControlBlock LCD;
+extern VideoConsole VConsole;
 
