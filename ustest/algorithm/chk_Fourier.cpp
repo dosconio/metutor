@@ -1,5 +1,5 @@
 #include "alice.h"
-#include <math.h>
+#include "arith.h"
 #include "stdio.h"
 extern "C"
 {

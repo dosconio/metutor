@@ -70,8 +70,14 @@ if [ ${debug} -eq 0 ] ; then
   rm -f ${elf_file_basename}_postbuild.bin
 fi
 
+
+crt_path=`pwd`
+
+
 if [ ${ret} -eq 0 ] ; then
+  echo current in ${crt_path}
   echo "${elf_file_basename}.elf stm32 image header added. Output file: ${elf_file_basename}.stm32"
+  cp ${elf_file_basename}.stm32 ${crt_path}/../Result/${elf_file_basename}.stm32
 else
   echo "postbuild_STM32MP13.sh failed"
 fi

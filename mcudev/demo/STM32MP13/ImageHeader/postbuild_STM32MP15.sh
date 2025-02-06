@@ -66,12 +66,16 @@ command="${cmd} ${imgtool} ${elf_file_basename}_postbuild.bin ${elf_file_basenam
 ${command}
 ret=$?
 
+crt_path=`pwd`
+
 if [ ${debug} -eq 0 ] ; then
   rm -f ${elf_file_basename}_postbuild.bin
 fi
 
 if [ ${ret} -eq 0 ] ; then
+  echo ${crt_path}
   echo "${elf_file_basename}.elf stm32 image header added. Output file: ${elf_file_basename}.stm32"
+  
 else
   echo "postbuild_STM32MP15.sh failed"
 fi

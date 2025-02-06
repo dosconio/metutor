@@ -58,9 +58,40 @@ bool init() {
 	GPIOA[3].setInterrupt(hand);
 	GPIOI[0].setMode(GPIOMode::INN);
 	GPIOI[2].setMode(GPIOMode::OUT) = 1;
-	//
+	// SDCard
+	asrtret(SDCard1.setMode());
 
 	return true;
+}
+
+_ESYM_C void f_1();
+_ESYM_C void f_2();_ESYM_C void f_3();_ESYM_C void f_4();
+//_ESYM_C void f_0(){ static int pp = 0; VConsole.FormatShow("(%d)", pp++); }
+//_ESYM_C void f_read_selfdef();
+extern "C" byte local_out_lock;
+extern "C" int  outsfmt0(const char* fmt, ...) {
+	local_out_lock = 0;
+	Letpara(args, fmt);
+	uint32 a = para_next(args, uint32);
+	uint32 b = para_next(args, uint32);
+	VConsole.FormatShow(fmt, a, b);
+}
+extern "C" uint16 SD_InitCard_sd_rca;
+extern "C" void dbg_trans(int idx, uint32* des){
+	uint32 m;
+	// i [0]CID [1]CSD
+	if (idx==0) for0(i,4) des[i] = SDCard1.CID[i];
+	if (idx==1) for0(i,4) des[i] = SDCard1.CSD[i];
+	if (idx==2) des[nil] = SD_InitCard_sd_rca;
+	if (idx==3) des[nil] = SDCard1.CardInfo.Class;
+	if (idx==4) des[nil] = _IMM(SDCard1.CardType);
+	if (idx==5) des[nil] = SDCard1.CARD_V2X_else_V1X;
+	if (idx==6) SDCard1.SD_FindSCR(des, &m);
+	if (idx==7) des[nil] = SDCard1.temp_ClockDiv;
+}
+
+extern "C" {
+extern uint32_t* Buffer0;
 }
 
 fn main() -> int {
@@ -68,13 +99,27 @@ fn main() -> int {
 	GPIOA[3].enInterrupt();
 	//GPIOI[0].enInterrupt();
 	Circle circ(Point(200,200), 200);
+	Rectangle scrn_rect(Point(0, 0), Size2(800, 480), Color::AliceBlue);
+	LCD.Draw(scrn_rect);
 	VConsole.FormatShow("Ciallo %[32H]", 0x4567);
+
+	{
+
+		SDCard1.Read(0x500, Buffer0);
+		SDCard1.Read(0x501, (char*)Buffer0 + 512);
+		outsfmt0(" --- ", 0, 0);
+		for(int i=0; i< 16; i++) outsfmt0(" {%x}", *((char*)Buffer0 + i), 0);
+		outsfmt0(" - ", 0, 0);
+		for(int i=512; i< 520; i++) outsfmt0(" {%x}", *((char*)Buffer0 + i), 0);
+		// write blk1 and then read to blk0
+		for0(i,512) *((char*)Buffer0 + 512 + i) = i;
+		SDCard1.Write(0x666, (char*)Buffer0 + 512);
+		SDCard1.Read(0x666, Buffer0);
+		outsfmt0(" --- ", 0, 0);
+		for(int i=0; i< 512; i++) outsfmt0(" {%x}", *((char*)Buffer0 + i), 0);
+	}
 	loop {
 		static unsigned k = 10;
-		//GPIOG[10].Toggle();
-		//*(uint32*)&circ.color = k += 10;
-		//LCD.Draw(circ);
-		//LED = GPIOI[0];
 		LED.Toggle();
 		SysDelay(250);
 	}
@@ -86,4 +131,4 @@ VideoConsole VConsole(LTDC[1], Size2(80, 25));
 
 void LTDC_LAYER_t::DrawFont(const Point& disp, const DisplayFont& font) const {}
 void outtxt(const char* str, stduint len) {str; len;}
-
+extern "C" { void erro(void) { loop{ LED.Toggle(); SysDelay(2000); } } }

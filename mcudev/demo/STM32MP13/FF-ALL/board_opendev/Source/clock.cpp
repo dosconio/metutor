@@ -94,6 +94,5 @@ bool init_clock() {
 	return true;
 }
 
-extern "C" { void erro(void) { loop; } }
 extern "C" { void Error_Handler(void) { erro(); } }
 extern "C" { void assert_failed(void) { erro(); } }

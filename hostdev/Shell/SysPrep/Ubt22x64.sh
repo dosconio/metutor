@@ -43,6 +43,11 @@ rustup component add llvm-tools-preview
 rustup component add rust-src
 rustup target add x86_64-unknown-linux-musl
 
+# PPA
+sudo apt install gnupg dput dh-make devscripts lintian gpg fakeroot
+sudo apt install git make build-essentials
+sudo apt install gnupg
+
 # 用于编译 Linux 内核，需要：
 # sudo apt install libncurses5-dev linux-source
 sudo apt install flex bison
