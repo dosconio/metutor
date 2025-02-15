@@ -8,7 +8,7 @@ GPIO_Pin& KEY = GPIOC[1];
 void hand_uart() {
 	int data;
 	XART1 >> data;
-	XART1 << data + 1;
+	XART1 << data;
 }
 
 int main() {
@@ -16,11 +16,11 @@ int main() {
 	if (!RCC.setClock(SysclkSource::HSE)) while (true);
 	XART1.setMode();
 	XART1.RuptTrait::enInterrupt(hand_uart);
-	SysDelay(1);
+	SysDelay(10);
 	XART1 << "Hello~\n";
 	while (true) {
 		LED.Toggle();
 		XART1 << ">>>\n";
-		SysDelay(1000);
+		SysDelay(5000);
 	}
 }

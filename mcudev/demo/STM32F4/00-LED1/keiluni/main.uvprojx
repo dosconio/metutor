@@ -341,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define>_MCU_STM32F4x</Define>
               <Undefine></Undefine>
-              <IncludePath>M:\her\SVGN\unisym\inc;%uincpath%</IncludePath>
+              <IncludePath>M:\her\SVGN\unisym\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

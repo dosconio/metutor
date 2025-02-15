@@ -76,19 +76,6 @@ extern "C" int  outsfmt0(const char* fmt, ...) {
 	uint32 b = para_next(args, uint32);
 	VConsole.FormatShow(fmt, a, b);
 }
-extern "C" uint16 SD_InitCard_sd_rca;
-extern "C" void dbg_trans(int idx, uint32* des){
-	uint32 m;
-	// i [0]CID [1]CSD
-	if (idx==0) for0(i,4) des[i] = SDCard1.CID[i];
-	if (idx==1) for0(i,4) des[i] = SDCard1.CSD[i];
-	if (idx==2) des[nil] = SD_InitCard_sd_rca;
-	if (idx==3) des[nil] = SDCard1.CardInfo.Class;
-	if (idx==4) des[nil] = _IMM(SDCard1.CardType);
-	if (idx==5) des[nil] = SDCard1.CARD_V2X_else_V1X;
-	if (idx==6) SDCard1.SD_FindSCR(des, &m);
-	if (idx==7) des[nil] = SDCard1.temp_ClockDiv;
-}
 
 extern "C" {
 extern uint32_t* Buffer0;
