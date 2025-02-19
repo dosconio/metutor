@@ -8,12 +8,16 @@ GPIN& LEDB = GPIOB[0];
 GPIN& LEDR = GPIOB[1];
 
 int main() {
+	L1C.enAble();
+	NVIC.setPriorityGroup(4); // 4 pre and 0 sub
+	SysTick::enClock(1000);// 1kHz
+	
 	LEDB.setMode(GPIOMode::OUT);
 	LEDR.setMode(GPIOMode::OUT);
 	while (true) {
 		LEDR.Toggle();
-		for(volatile unsigned i{0}; i < 1000000; i++){}
+		SysDelay_ms(500);
 		LEDB.Toggle();
-		for(volatile unsigned i{0}; i < 1000000; i++){}
+		SysDelay_ms(500);
 	}
 }
