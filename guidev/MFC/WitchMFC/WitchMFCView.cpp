@@ -168,5 +168,5 @@ void CWitchMFCView::OnLButtonUp(UINT nFlags, CPoint point)
 
 void CWitchMFCView::OnDrawDrawfont()
 {
-	VConsole.FormatShow("Hello %x", 0x1234);
+	VConsole.OutFormat("Hello %x", 0x1234);
 }

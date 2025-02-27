@@ -66,7 +66,7 @@ bool init() {
 
 _ESYM_C void f_1();
 _ESYM_C void f_2();_ESYM_C void f_3();_ESYM_C void f_4();
-//_ESYM_C void f_0(){ static int pp = 0; VConsole.FormatShow("(%d)", pp++); }
+//_ESYM_C void f_0(){ static int pp = 0; VConsole.OutFormat("(%d)", pp++); }
 //_ESYM_C void f_read_selfdef();
 extern "C" byte local_out_lock;
 extern "C" int  outsfmt0(const char* fmt, ...) {
@@ -74,7 +74,7 @@ extern "C" int  outsfmt0(const char* fmt, ...) {
 	Letpara(args, fmt);
 	uint32 a = para_next(args, uint32);
 	uint32 b = para_next(args, uint32);
-	VConsole.FormatShow(fmt, a, b);
+	VConsole.OutFormat(fmt, a, b);
 }
 
 extern "C" {
@@ -88,7 +88,7 @@ fn main() -> int {
 	Circle circ(Point(200,200), 200);
 	Rectangle scrn_rect(Point(0, 0), Size2(800, 480), Color::AliceBlue);
 	LCD.Draw(scrn_rect);
-	VConsole.FormatShow("Ciallo %[32H]", 0x4567);
+	VConsole.OutFormat("Ciallo %[32H]", 0x4567);
 
 	{
 
