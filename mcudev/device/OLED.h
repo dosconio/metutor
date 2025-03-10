@@ -9,7 +9,7 @@ struct OLED_VCI_T : public uni::VideoControlInterface {
 	virtual void DrawPoint(const uni::Point& disp, uni::Color color) const;
 	virtual void DrawRectangle(const uni::Rectangle& rect) const;
 	virtual void DrawFont(const uni::Point& disp, const uni::DisplayFont& font) const { _TODO }
-	virtual uni::Color GetColor(uni::Point p) const { _TODO return uni::Color::Black; }
+	virtual uni::Color GetColor(uni::Point p) const;
 };
 
 extern OLED_VCI_T oled_vci_t;
@@ -77,6 +77,7 @@ public:
 	OLED_VCI_T getControlInterface() {
 	    return OLED_VCI_T(this);
 	}
+	uni::VideoControlBlock getControlBlock();
 
 	void Refresh() {
 		if (page) for0(m, 8) {

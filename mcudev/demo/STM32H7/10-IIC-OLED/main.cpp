@@ -1,6 +1,7 @@
 #define _DEBUG
 #include <cpp/MCU/ST/STM32H7>
 #include "../../../device/OLED.h"
+#include <new>
 
 extern "C" char _IDN_BOARD[16] {"STM32H743IIT6"};
 
@@ -40,36 +41,15 @@ void hand_xart1() {
 
 void iic_delay() { for0(i,5); }
 
-void driv_soft() {
-	// test only in -O0 mode
-	using namespace uni;
-	GPIN& SCL = GPIOH[ 4];
-	GPIN& SDA = GPIOH[ 5];
-	IIC_SOFT oled_wire(SDA, SCL);
-	oled_wire.func_delay = iic_delay;
-	OLED_t   oled(0x78, oled_wire);
-	oled.setPage(&OLED_Page);
-	SysDelay_ms(100);
-	oled.setOutput();
-	SysDelay_ms(100);
-	oled.Fill(0);
-	auto vci = oled.getControlInterface();
-	VideoConsole Vcon(vci, Size2(128, 64));
-	Vcon.forecolor = Color::White;
-	Vcon.OutFormat("Halo%s%s!", "Happy", "Word");
-	oled.Refresh();
-	while (true) {
-		LEDB.Toggle();
-		SysDelay_ms(1000);
-	}
-}
-void driv_hard() {
 
-	
-	
+
+void driv_hard_dma() {
+	_TODO
 }
 
+// test only in -O0 mode
 int main() {
+	using namespace uni;
 	L1C.enAble();
 	NVIC.setPriorityGroup(2);
 	if (!RCC.setClock(SysclkSource::HSE)) erro();
@@ -90,9 +70,46 @@ int main() {
 	
 	XART1.OutFormat("Hello, %s %s on %s\n", "Example", "IIC Drive OLED Screen", _IDN_BOARD);
 	
-	if (1) 
-		driv_soft();
-	else;
+	byte oled_entity[byteof(OLED_t)];
+	OLED_t* my_oled = (OLED_t*)oled_entity;
+	
+	#define devaddr 0x78
+	if (1) // SOFT
+	{
+		GPIN& SCL = GPIOB[ 6];
+		GPIN& SDA = GPIOB[ 7];
+		IIC_SOFT oled_wire(SDA, SCL);
+		oled_wire.func_delay = iic_delay;
+		new (my_oled) OLED_t(devaddr, oled_wire); 
+
+	
+	}
+	/*
+	else if (0) { // HARD
+		IIC1.setDestination(devaddr);
+		IIC1.setMode();
+		new (my_oled) OLED_t(devaddr, IIC1); 
+	}*/
+	
+	//
+	my_oled->setPage(&OLED_Page);
+	SysDelay_ms(100);
+	my_oled->setOutput();
+	my_oled->Fill(0);
+	auto vci = my_oled->getControlInterface();
+	VideoConsole Vcon(vci, Size2(128 / 8, 64 / 16));
+	Vcon.forecolor = Color::White;
+	Vcon.OutFormat("Hello, %s %s!\n\r", "Happy", "World"); my_oled->Refresh();
+	Vcon.OutFormat("KIRAKIRA\nDOKIDOKI"); my_oled->Refresh();
+	// Vcon.OutFormat("TEST Write String on multiline~"); oled.Refresh();
+	
+	while (true) {
+		static int i = 0;
+		Vcon.OutFormat("%d", i); my_oled->Refresh();
+		++i %= 10;
+		LEDB.Toggle();
+		SysDelay_ms(250);
+	}
 }
 
 void erro(char* str) {

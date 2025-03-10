@@ -35,6 +35,9 @@ void OLED_t::setOutput() {
 	SendCmd(0xaf); //--turn on oled panel
 }
 
+uni::VideoControlBlock OLED_t::getControlBlock() {
+	return uni::VideoControlBlock(getControlInterface(), uni::Size2(128, 64), uni::Color::Black);
+}
 
 void OLED_VCI_T::SetCursor(const uni::Point& disp) const {
 	oled->SendCmd(0xb0 + disp.y / 8);
@@ -56,7 +59,19 @@ void OLED_VCI_T::DrawPoint(const uni::Point& disp, uni::Color color) const {
 }
 
 void OLED_VCI_T::DrawRectangle(const uni::Rectangle& rect) const {
-
+	for (int i = rect.x; i < rect.x + rect.width; i++)
+		for (int j = rect.y; j < rect.y + rect.height; j++)
+			DrawPoint(uni::Point(i, j), rect.color);
 }
+
+uni::Color OLED_VCI_T::GetColor(uni::Point disp) const {
+	using namespace uni;
+	if (!oled->page) return Color::Black;
+	byte& pnt = (*oled->page)[disp.y / 8][disp.x];
+	byte  pos = disp.y % 8;
+	return (pnt & _IMM1S(pos)) ? Color::White : Color::Black;
+}
+
+
 
 
