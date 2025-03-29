@@ -65,6 +65,8 @@ __heap_limit
                 THUMB
 
 
+
+
 ; Vector Table Mapped to Address 0 at Reset
                 AREA    RESET, DATA, READONLY
                 EXPORT  __Vectors
@@ -184,6 +186,7 @@ Reset_Handler    PROC
                  EXPORT  Reset_Handler             [WEAK]
         IMPORT  SystemInit
         IMPORT  __main
+		IMPORT HardFault_Handler
 
                  LDR     R0, =SystemInit
                  BLX     R0
@@ -197,11 +200,7 @@ NMI_Handler     PROC
                 EXPORT  NMI_Handler                [WEAK]
                 B       .
                 ENDP
-HardFault_Handler\
-                PROC
-                EXPORT  HardFault_Handler          [WEAK]
-                B       .
-                ENDP
+
 MemManage_Handler\
                 PROC
                 EXPORT  MemManage_Handler          [WEAK]

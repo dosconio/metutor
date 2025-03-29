@@ -105,4 +105,23 @@ sudo apt install stlink-gui
 
 # sudo apt install gcc-arm-linux-gnueabihf
 
+# 安装 Docker
+sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg lsb-release
+curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo usermod -aG docker $USER
+#sudo reboot
+##验证docker服务状态
+#$ systemctl status docker.service
+#$ systemctl status docker.socket
+##如果显示都在runing 则直接拉去容器；否则请采用下面命令开启服务。
+#$ systemctl start docker.service
+#$ systemctl start docker.socket
+##查看docker版本
+#sudo docker version
+
+
+
 
