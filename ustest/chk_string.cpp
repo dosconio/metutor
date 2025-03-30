@@ -29,7 +29,18 @@ int main() {
 	strC << '_';
 	strC << '\0';
 	strC << 'E';
+	if (strC.inn() != 'E') return -1;
+	if (strC.inn() != 0) return -1;
 	Console.OutFormat("strC> CNT%d LIM%d\n", strC.getCharCount(), strC.getLimit());
+	if (strC.inn() != '_') return -1;
+	if (strC.inn() != 'B') return -1;
+	strC << 'C';
+	strC << 'D';
+	strC.inn_direction = true;
+	if (strC.inn() != 'A') return -1;
+	if (strC.inn() != 'C') return -1;
+	if (strC.inn() != 'D') return -1;
+	if (strC.inn() != -1) return -1;
 	//{TODO} make XstreamTrait in String or Strstr
 
 	return 0;
