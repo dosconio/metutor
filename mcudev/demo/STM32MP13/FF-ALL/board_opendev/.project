@@ -33,21 +33,6 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>Drivers/stm32mp13xx_hal.c</name>
-			<type>1</type>
-			<locationURI>PARENT-7-PROJECT_LOC/TODO/STM32Cube_FW_MP13_V1.1.0/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal.c</locationURI>
-		</link>
-		<link>
-			<name>Drivers/stm32mp13xx_hal_rcc.c</name>
-			<type>1</type>
-			<locationURI>PARENT-7-PROJECT_LOC/TODO/STM32Cube_FW_MP13_V1.1.0/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_rcc.c</locationURI>
-		</link>
-		<link>
-			<name>Drivers/stm32mp13xx_hal_rcc_ex.c</name>
-			<type>1</type>
-			<locationURI>PARENT-7-PROJECT_LOC/TODO/STM32Cube_FW_MP13_V1.1.0/Drivers/STM32MP13xx_HAL_Driver/Src/stm32mp13xx_hal_rcc_ex.c</locationURI>
-		</link>
-		<link>
 			<name>Source/stm32mp13X-ac7.cpp</name>
 			<type>1</type>
 			<location>M:/her/SVGN/mecocoa/prehost/stm32mp13X-ac7/stm32mp13X-ac7.cpp</location>
