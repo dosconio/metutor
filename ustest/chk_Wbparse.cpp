@@ -2,6 +2,7 @@
 #include <cpp/nodes>
 #include <cpp/parse.hpp>
 #include <c/consio.h>
+#include <../magic/magice.hpp>
 
 using namespace uni;
 
@@ -18,7 +19,7 @@ const char* tab_tokentype[] =
 class MyInn : public IstreamTrait {
 	FILE* fp;
 public:
-	MyInn() : fp(fopen("E:/PROJ/metutor/ustest/parse/src_Wbparse_0.cpp", "r")) {}
+	MyInn() : fp(fopen("E:/PROJ/metutor/ustest/parse/src_Wbparse_0_0.cpp", "r")) {}
 	~MyInn() { fclose(fp); fp = nullptr; }
 	virtual int inn() {
 		return fgetc(fp);
@@ -34,7 +35,7 @@ void MyWalk(Nnode& nod, stduint nest) {
 		nod.GetMagnoField().col,
 		nod.addr);
 }
-
+uni::OstreamTrait* dst;
 int main() {
 	{
 		MyInn myInn;
@@ -52,10 +53,14 @@ int main() {
 		// Process Directive
 		// ...
 
-		NestedParser neparse(dc, NULL);
-		neparse.ParseBlockStatements_CPL();
+		NodeChain operators(NodeHeapFreeSimple);
+		Operators::List(operators);
 
+		NestedParser neparse(dc, &operators);
 
+		neparse.ParseParen(neparse.GetNetwork()->Root());
+		neparse.ParseStatements_CPL();
+		neparse.ParseOperator(neparse.GetNetwork()->Root());
 
 		neparse.GetNetwork()->Traversal(MyWalk);
 
