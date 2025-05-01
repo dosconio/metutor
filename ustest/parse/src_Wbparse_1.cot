@@ -1,0 +1,12 @@
+if a == 2
+func main
+	getline a
+	if a == 2
+		test a++
+	else
+		test (--a end)
+	putline a
+
+func subf
+	if 1
+		putline 1

@@ -19,7 +19,7 @@ const char* tab_tokentype[] =
 class MyInn : public IstreamTrait {
 	FILE* fp;
 public:
-	MyInn() : fp(fopen("E:/PROJ/metutor/ustest/parse/src_Wbparse_0_0.cpp", "r")) {}
+	MyInn() : fp(fopen("E:/PROJ/metutor/ustest/parse/src_Wbparse_1.cot", "r")) {}
 	//MyInn() : fp(fopen("E:/tmp/a.txt", "r")) {}
 	~MyInn() { fclose(fp); fp = nullptr; }
 	virtual int inn() {
@@ -59,8 +59,9 @@ int main() {
 
 		NestedParser neparse(dc, &operators);
 
+		neparse.ParseStatements_COT();
+		neparse.ParseBlocks_COT();
 		neparse.ParseParen(neparse.GetNetwork()->Root());
-		neparse.ParseStatements_CPL();
 		neparse.ParseOperator(neparse.GetNetwork()->Root());
 
 		neparse.GetNetwork()->Traversal(MyWalk);

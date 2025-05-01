@@ -12,12 +12,12 @@ int tocomp_ft(pureptr_t a, pureptr_t b) {
 
 int main() {
 	Dchain a;
-	a.Append((rostr)4);
-	a.Append((rostr)7);
-	a.Append((rostr)1);
-	a.Append((rostr)9);
-	a.Append((rostr)6);
-	a.Append((rostr)0);
+	a.Append((pureptr_t)4);
+	a.Append((pureptr_t)7);
+	a.Append((pureptr_t)1);
+	a.Append((pureptr_t)9);
+	a.Append((pureptr_t)6);
+	a.Append((pureptr_t)0);
 	a.Compare_f = tocomp_ft;
 	//a.Sort(SortMode::Insertion);// AKA Sort(a, SortMode::Insertion) or  a.Sort();
 	//a.Sort(SortMode::Selection);
